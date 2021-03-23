@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stroke Prediction</title>
+  <style type="text/css">
+    html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: black;
+}
+
+    #section1{
+       margin-top: 0px;
+     margin-bottom: 0px;
+      height: 900px;
+      background: url('https://passioncomm.com/wp-content/uploads/2016/07/Brain-light-up-GIF-Final.gif');
+      background-position: center;
+      background-repeat: no-repeat;
+     background-size: cover;
+     text-align: center;
+     color:white;
+     font-size: 25px;
+    }
+    #section2{
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: auto;
+     background: url('https://www.healthcareitnews.com/sites/hitn/files/Global%20healthcare_2.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+     background-size: cover;
+     text-align: center;
+     font-size: 25px;
+      text-align: center;
+    }
+   input {
+    color: white;
+    background: transparent;
+  font-size: 16px;
+  color: black;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  }
+  select{
+    background: transparent;
+    color: black;
+    font-size: 16px;
+    border-bottom: 1px solid #fff;
+  outline: none;
+  }
+  input[type=submit] {
+  width: 10%;
+  background-color: white;
+  color: black;
+
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+input[type=submit]:hover {
+ background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+  </style>
+</head>
+<body>
+<div class="main" id="section1">
+  <p >According to the World Health Organization (WHO) stroke is the 2nd leading cause of death globally, responsible for approximately 11% of total deaths.</p>
+  <br>
+  <p> Are you safe?</p>
+  <br>
+  <a href="#section2" style="color: white">Check prediction tool!</a>
+</div>
+<!--section 2 -->
+<div class="main" id="section2">
+  <h2>Brain Stroke Prediction</h2>
+  <form action="{{ url_for('predict')}}" method="post">
+    <h4 >Gender:<select id="1" name="gender"></h4>
+        <option >Select</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+    </select></h4>
+    <h4>Age:<input id="2" type="number" name="age" placeholder="Enter your age"></h4>
+    <h4>Hypertension:<select id="3" name="hypertension">
+        <option >Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select></h4>
+    <h4>Any heart disease:<select id="4" name="heart_disease">
+        <option >Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select></h4>
+    <h4>Marriage status:<select id="5" name="ever_married">
+      <option >Select</option>
+        <option value="Yes">Married</option>
+        <option value="No">Unmarried</option>
+    </select></h4>
+    <h4>Work Status:<select id="6" name="work_type">
+        <option >Select</option>
+        <option value="Private">Private Employee</option>
+        <option value="Self-employed">Self-employed</option>
+        <option value="Govt_job">Government employee</option>
+        <option value="children">Student/child</option>
+        <option value="Never_worked">Unemployed</option>
+    </select></h4>
+    <h4>Residence Area:<select id="7" name="Residence_Area">
+        <option >Select</option>
+        <option value="Urban">Urban</option>
+        <option value="Rural">Rural</option>
+    </select></h4>
+    <h4>Average Glucose Level:<input id="8" type="number" name="avg_glucose_level" placeholder="glocose level avg"></h4>
+    <h4>BMI:<input id="9" type="number" name="bmi" placeholder="Enter BMI"></h4>
+    <h4>Smoking:<select id="10" name="smoking_status">
+        <option >Select</option>
+        <option value="smokes">Smokes</option>
+        <option value="formerly smoked">Formerly smoked</option>
+        <option value="never smoked">Never smoked</option>
+        <option value="Unkonown">unknown</option><br>
+    </select></h4>
+    <input type="submit" name="bu" value="Predict">
+    <h2>{{ prediction_text }}<h2>
+  </form>
+</div>
+</body>
+</html>
